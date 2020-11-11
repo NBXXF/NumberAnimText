@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="这是人民币9740.46%"
+        android:hint="请输入数字" />
+
+    <Button
+        android:id="@+id/btn_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="开始" />
+
+    <com.xxf.view.numberanimtext.NumberCountAnimTextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:textColor="@android:color/black"
+        android:textSize="50sp" />
+
+    <com.xxf.view.numberanimtext.NumberAnimTextView
+        android:id="@+id/rollingTextView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rollingTextView2"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="100dp"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="#ffff00ff"
+        android:textSize="35sp"
+        android:textStyle="italic" />
+</LinearLayout>

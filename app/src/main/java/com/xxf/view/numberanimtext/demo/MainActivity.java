@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
     private List<String> list = Arrays.asList("1", "21339", "12", "123319", "24", "6", "247",
             "5226", "63", "378", "234389", "12395", "2", "1289", "32212", "400");
+    private List<String> list2 = Arrays.asList("1%", "21339%", "12.0%", "123319", "24%", "6%", "247%",
+            "5226%", "63%", "378%", "234389%", "12395%", "2.0%", "1289%", "32212%", "400%");
     private int idx = 0;
 
     @Override
@@ -64,13 +66,14 @@ public class MainActivity extends AppCompatActivity {
         }, 2000L);
 
         final NumberAnimTextView carryBit = findViewById(R.id.rollingTextView3);
-        carryBit.addCharOrder(CharOrder.Number);
+        carryBit.addCharOrder(CharOrder.Number+"%.");
         carryBit.setAnimationDuration(2000L);
         carryBit.setCharStrategy(Strategy.CarryBitAnimation(Direction.SCROLL_UP));
+        carryBit.setText("%");
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                carryBit.setText(list.get(idx % list.size()));
+                carryBit.setText(list2.get(idx % list.size()));
                 handler.postDelayed(this, 3000L);
             }
         }, 2000L);
@@ -162,7 +165,9 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 charOrder1.setText("g"); //move from a to g
 
-                charOrder2.setText("g"); //just like charOrder1 but with different charOder
+                charOrder2.setText("g");
+                handler.postDelayed(this,2000);
+                //just like charOrder1 but with different charOder
             }
         }, 2000L);
 
