@@ -226,7 +226,7 @@ open class NumberAnimTextView : View {
     /**
      * @param text 设置文本
      */
-    fun setText(text: CharSequence) = setText(text, !TextUtils.isEmpty(targetText))
+    open fun setText(text: CharSequence) = setText(text, !TextUtils.isEmpty(targetText))
 
     fun getText() = targetText
 

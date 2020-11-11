@@ -86,7 +86,10 @@ public class NumberCountAnimTextView extends TextView {
             while (v >= 100) {
                 v = v / 10;
             }
-            if (v > 15) {
+            /**
+             * 超过Int最大值边界是负数
+             */
+            if (v < 0 || v > 15) {
                 v = 15;
             }
             slowCountNumber = new BigDecimal(v);
@@ -118,16 +121,17 @@ public class NumberCountAnimTextView extends TextView {
                 NumberCountAnimTextView.super.setText(formatStr.replace(TAG, numberFormat.format(currentNum)), TextView.BufferType.NORMAL);
             }
         };
+        firstAnimator.setDuration(500L);
         firstAnimator.addUpdateListener(bigDecimalUpdateListener);
         firstAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
 
         ValueAnimator linearValueAnimator = ValueAnimator.ofObject(new BigDecimalEvaluator(), animTarget, target);
+        linearValueAnimator.setDuration(800L);
         linearValueAnimator.setInterpolator(new DecelerateInterpolator());
         linearValueAnimator.addUpdateListener(bigDecimalUpdateListener);
 
         animator = new AnimatorSet();
         animator.playSequentially(firstAnimator, linearValueAnimator);
-        animator.setDuration(500L);
         animator.start();
     }
 
