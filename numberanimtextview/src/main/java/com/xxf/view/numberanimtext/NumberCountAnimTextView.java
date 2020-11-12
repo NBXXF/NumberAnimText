@@ -49,7 +49,7 @@ public class NumberCountAnimTextView extends TextView {
                 final String textStr = text.toString();
                 Pattern p = Pattern.compile("([1-9]\\d*\\.?\\d*)|(0\\.\\d*[1-9])");
                 Matcher m = p.matcher(textStr);
-                while (m.find()) {
+                if (m.find()) {
                     final String group = m.group();
                     BigDecimal bigDecimal = new BigDecimal(group);
                     if (bigDecimal.subtract(new BigDecimal(0)).doubleValue() > 0) {
@@ -57,7 +57,8 @@ public class NumberCountAnimTextView extends TextView {
                     } else {
                         super.setText(text, type);
                     }
-                    break;
+                } else {
+                    super.setText(text, type);
                 }
             }
         } catch (Exception e) {
