@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 normal.setText(list.get(idx % list.size()));
-                handler.postDelayed(this, 3000L);
+                handler.postDelayed(this, 4000L);
             }
         }, 2000L);
 
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 sameDirection.setText(list.get(idx % list.size()));
-                handler.postDelayed(this, 3000L);
+                handler.postDelayed(this, 8000L);
             }
         }, 2000L);
 

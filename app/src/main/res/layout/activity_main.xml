@@ -165,28 +165,36 @@
             android:text="abc"
             android:textSize="40sp" />
 
-        <com.xxf.view.numberanimtext.NumberAnimTextView
-            android:id="@+id/rollingTextView"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/rollingTextViewLa"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/alphaBetView"
             android:layout_alignParentRight="true"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="100dp"
-            android:gravity="center"
-            android:text="0"
-            android:textColor="#ffff00ff"
-            android:textSize="35sp"
-            android:textStyle="italic"
-            app:duration="300" />
+            android:layout_marginRight="100dp">
+
+            <com.xxf.view.numberanimtext.NumberAnimTextView
+                android:id="@+id/rollingTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#6cf"
+                android:gravity="left"
+                android:text="0"
+                android:textColor="#ffff00ff"
+                android:textSize="35sp"
+                android:textStyle="italic"
+                app:duration="300" />
+        </LinearLayout>
+
 
         <com.xxf.view.numberanimtext.NumberAnimTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/rollingTextView"
+            android:layout_alignBottom="@id/rollingTextViewLa"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="50dp"
-            android:layout_toLeftOf="@+id/rollingTextView"
+            android:layout_toLeftOf="@+id/rollingTextViewLa"
             android:gravity="start|center_vertical"
             android:padding="10dp"
             android:text="Normal"
@@ -196,7 +204,7 @@
             android:id="@+id/rollingTextView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/rollingTextView"
+            android:layout_below="@+id/rollingTextViewLa"
             android:layout_alignParentRight="true"
             android:layout_marginRight="100dp"
             android:gravity="center"

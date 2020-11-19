@@ -53,13 +53,13 @@ open class NumberAnimTextView : View {
     }
 
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int)
-        : super(context, attrs, defStyleAttr) {
+            : super(context, attrs, defStyleAttr) {
         init(context, attrs, defStyleAttr, 0)
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int)
-        : super(context, attrs, defStyleAttr, defStyleRes) {
+            : super(context, attrs, defStyleAttr, defStyleRes) {
         init(context, attrs, defStyleAttr, defStyleRes)
     }
 
@@ -71,7 +71,7 @@ open class NumberAnimTextView : View {
         var shadowRadius = 0f
         var text = ""
         var textSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,
-            12f, context.resources.displayMetrics)
+                12f, context.resources.displayMetrics)
 
         fun applyTypedArray(arr: TypedArray) {
             gravity = arr.getInt(R.styleable.NumberAnimTextView_android_gravity, gravity)
@@ -86,14 +86,14 @@ open class NumberAnimTextView : View {
         }
 
         val arr = context.obtainStyledAttributes(attrs, R.styleable.NumberAnimTextView,
-            defStyleAttr, defStyleRes)
+                defStyleAttr, defStyleRes)
 
         val textAppearanceResId = arr.getResourceId(
-            R.styleable.NumberAnimTextView_android_textAppearance, -1)
+                R.styleable.NumberAnimTextView_android_textAppearance, -1)
 
         if (textAppearanceResId != -1) {
             val textAppearanceArr = context.obtainStyledAttributes(
-                textAppearanceResId, R.styleable.NumberAnimTextView)
+                    textAppearanceResId, R.styleable.NumberAnimTextView)
             applyTypedArray(textAppearanceArr)
             textAppearanceArr.recycle()
         }
@@ -154,7 +154,7 @@ open class NumberAnimTextView : View {
     override fun onSizeChanged(width: Int, height: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(width, height, oldw, oldh)
         viewBounds.set(paddingLeft, paddingTop, width - paddingRight,
-            height - paddingBottom)
+                height - paddingBottom)
     }
 
     private fun checkForReLayout(): Boolean {
@@ -261,7 +261,7 @@ open class NumberAnimTextView : View {
         }
     }
 
-    var typeface: Typeface?
+    open var typeface: Typeface?
         set(value) {
             textPaint.typeface = when (textStyle) {
                 Typeface.BOLD_ITALIC -> Typeface.create(value, Typeface.BOLD_ITALIC)
